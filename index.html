@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Derick Juma - Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -23,6 +23,10 @@
             --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -45,12 +49,7 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .welcome-screen.fade-out {
-            opacity: 0;
-            transform: translateY(-100%);
+            animation: hideWelcome 4s ease forwards;
         }
 
         .profile-circle {
@@ -98,34 +97,9 @@
             animation: slideUp 1s ease 0.7s both;
         }
 
-        .skip-btn {
-            position: absolute;
-            bottom: 2rem;
-            right: 2rem;
-            background: transparent;
-            border: 2px solid var(--text-light);
-            color: var(--text-light);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .skip-btn:hover {
-            background: var(--text-light);
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
         /* Main Content */
         .main-content {
-            opacity: 0;
-            transition: opacity 1s ease 0.5s;
-        }
-
-        .main-content.show {
-            opacity: 1;
+            animation: showContent 1s ease 4s both;
         }
 
         /* Floating Background Elements */
@@ -161,11 +135,6 @@
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
             z-index: 100;
-            transition: transform 0.3s ease;
-        }
-
-        nav.hidden {
-            transform: translateY(-100%);
         }
 
         .nav-container {
@@ -230,14 +199,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: slideUp 1s ease both;
+            animation: slideUp 1s ease 4.5s both;
         }
 
         .hero-content p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.8;
-            animation: slideUp 1s ease 0.2s both;
+            animation: slideUp 1s ease 4.7s both;
         }
 
         .cta-button {
@@ -248,7 +217,7 @@
             text-decoration: none;
             border-radius: 50px;
             transition: all 0.3s ease;
-            animation: slideUp 1s ease 0.4s both;
+            animation: slideUp 1s ease 4.9s both;
         }
 
         .cta-button:hover {
@@ -393,7 +362,72 @@
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
 
+        /* Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient-3);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+        }
+
+        /* Project Links */
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background: var(--primary-color);
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+
         /* Animations */
+        @keyframes hideWelcome {
+            0%, 75% { 
+                opacity: 1; 
+                visibility: visible;
+                transform: translateY(0);
+            }
+            100% { 
+                opacity: 0; 
+                visibility: hidden;
+                transform: translateY(-100%);
+            }
+        }
+
+        @keyframes showContent {
+            0% { 
+                opacity: 0; 
+            }
+            100% { 
+                opacity: 1; 
+            }
+        }
+
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -443,49 +477,10 @@
             .profile-circle i {
                 font-size: 3rem;
             }
-        }
 
-        /* Download Button */
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--gradient-3);
-            color: var(--text-light);
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
-        }
-
-        /* Project Links */
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .project-link {
-            padding: 0.5rem 1rem;
-            background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .project-link:hover {
-            background: var(--primary-color);
-            color: var(--text-light);
-            transform: translateY(-2px);
+            .project-links {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -498,7 +493,7 @@
     </div>
 
     <!-- Welcome Screen -->
-    <div class="welcome-screen" id="welcomeScreen">
+    <div class="welcome-screen">
         <div class="profile-circle">
             <i class="fas fa-user"></i>
         </div>
@@ -506,13 +501,12 @@
             <h1>Welcome to My Portfolio</h1>
             <p>Junior Flutter Developer | | | Tech Enthusiast | | | Student Data Science</p>
         </div>
-        <button class="skip-btn" onclick="skipWelcome()">Skip Intro</button>
     </div>
 
     <!-- Main Content -->
-    <div class="main-content" id="mainContent">
+    <div class="main-content">
         <!-- Navigation -->
-        <nav id="navbar">
+        <nav>
             <div class="nav-container">
                 <div class="logo">Jude</div>
                 <ul class="nav-links">
@@ -540,7 +534,7 @@
             <h2>About Me</h2>
             <div class="card">
                 <p style="font-size: 1.1rem; line-height: 1.8; text-align: center;">
-                   Hi, I’m Derick Juma Sabuni — a passionate Software Engineer who loves turning ideas into impactful digital solutions.
+                   Hi, I'm Derick Juma Sabuni — a passionate Software Engineer who loves turning ideas into impactful digital solutions.
 I specialize in Flutter for cross-platform mobile development, building apps that are not only functional but also beautifully designed.
 Beyond mobile, I explore backend development with FastAPI and integrate machine learning to create smarter, data-driven applications.
 
@@ -548,59 +542,47 @@ I enjoy working on projects that solve real-world problems, from student housing
 
 My ultimate goal? To combine my skills in software engineering, data science, and entrepreneurship to build my own tech company — creating products that empower people and make a real difference.
 
-When I’m not coding, you’ll probably find me learning new technologies, refining my skills, or brainstorming my next big project.
+When I'm not coding, you'll probably find me learning new technologies, refining my skills, or brainstorming my next big project.
                 </p>
             </div>
         </section>
 
         <!-- Skills Section -->
-       <section id="skills">
-    <h2>Programming Languages & Skills</h2>
-    <div class="skills-grid">
-        
-        <div class="skill-item">
-            <i class="fas fa-mobile-alt"></i>
-            <h3>Flutter</h3>
-        </div>
-
-        <div class="skill-item">
-            <i class="fas fa-code"></i>
-            <h3>Dart</h3>
-        </div>
-
-        <div class="skill-item">
-            <i class="fab fa-android"></i>
-            <h3>Kotlin</h3>
-        </div>
-
-        <div class="skill-item">
-            <i class="fas fa-layer-group"></i>
-            <h3>Jetpack Compose</h3>
-        </div>
-
-        <div class="skill-item">
-            <i class="fab fa-python"></i>
-            <h3>Python</h3>
-        </div>
-
-        <div class="skill-item">
-            <i class="fas fa-server"></i>
-            <h3>FastAPI</h3>
-        </div>
-
-        
-
-        <div class="skill-item">
-            <i class="fab fa-js-square"></i>
-            <h3>JavaScript</h3>
-        </div>
-
-        <div class="skill-item">
-            <i class="fas fa-robot"></i>
-            <h3>Machine Learning</h3>
-        </div>
-
-
+        <section id="skills">
+            <h2>Programming Languages & Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Flutter</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <h3>Dart</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-android"></i>
+                    <h3>Kotlin</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Jetpack Compose</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-server"></i>
+                    <h3>FastAPI</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js-square"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>Machine Learning</h3>
+                </div>
                 <div class="skill-item">
                     <i class="fab fa-node-js"></i>
                     <h3>Node.js</h3>
@@ -625,22 +607,22 @@ When I’m not coding, you’ll probably find me learning new technologies, refi
             <h2>Educational Background</h2>
             <div class="card-grid">
                 <div class="card">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Bachelor's in Computer Science</h3>
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Bachelor's in Data Science</h3>
                     <p><strong>Meru University</strong></p>
                     <p>2024 - 2028</p>
                     <p style="margin-top: 1rem; opacity: 0.9;">
-                        Pursuing a Bachelor's degree in Data Science.
+                        Pursuing a Bachelor's degree in Data Science with focus on machine learning, statistics, and software engineering principles.
                     </p>
-                    <a href="#" class="download-btn">
+                    <a href="assets/Derick_resume.pdf" class="download-btn">
                         <i class="fas fa-download"></i>
-                        Download CV
+                        Download CV / RESUME
                     </a>
                 </div>
                 <div class="card">
                     <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Certifications</h3>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.5rem;">🏆 Meru University Innovators Club Membership</li>
-                    
+                        <li style="margin-bottom: 0.5rem;">🏆 Meru University Innovators Club Member</li>
+                       
                     </ul>
                 </div>
             </div>
@@ -664,6 +646,7 @@ When I’m not coding, you’ll probably find me learning new technologies, refi
                     <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
                     <h3>Data Science</h3>
                     <p>Leveraging data analytics and visualization to drive insights and informed decision-making.</p>
+                </div>
             </div>
         </section>
 
@@ -714,7 +697,7 @@ When I’m not coding, you’ll probably find me learning new technologies, refi
         <section id="contact">
             <h2>Get In Touch</h2>
             <div class="contact-form">
-                <form id="contactForm" action="https://formspree.io/f/mpwlleyg" method="POST">
+                <form action="https://formspree.io/f/mpwlleyg" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -731,108 +714,13 @@ When I’m not coding, you’ll probably find me learning new technologies, refi
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <!-- Hidden field for Formspree -->
+                    <!-- Hidden fields for Formspree -->
                     <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
-                    <input type="hidden" name="_next" value="#contact">
+                    <input type="hidden" name="_next" value="https://derick-juma.github.io/portfolio">
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
         </section>
     </div>
-
-    <script>
-        // Welcome screen auto-hide after 3 seconds
-        setTimeout(() => {
-            showMainContent();
-        }, 3000);
-
-        function skipWelcome() {
-            showMainContent();
-        }
-
-        function showMainContent() {
-            const welcomeScreen = document.getElementById('welcomeScreen');
-            const mainContent = document.getElementById('mainContent');
-            
-            welcomeScreen.classList.add('fade-out');
-            setTimeout(() => {
-                welcomeScreen.style.display = 'none';
-                mainContent.classList.add('show');
-            }, 800);
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-
-        // Navbar hide/show on scroll
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const navbar = document.getElementById('navbar');
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                navbar.classList.add('hidden');
-            } else {
-                navbar.classList.remove('hidden');
-            }
-            lastScrollTop = scrollTop;
-        });
-
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulate form submission
-            const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.textContent = 'Message Sent!';
-                submitBtn.style.background = 'var(--gradient-3)';
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = 'var(--gradient-1)';
-                    this.reset();
-                }, 2000);
-            }, 1500);
-        });
-
-        // Add scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.querySelectorAll('.card, section').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s ease';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
