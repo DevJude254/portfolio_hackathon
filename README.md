@@ -72,9 +72,9 @@ cd portfolio_hackathon
 - Replace contact form endpoint in the contact section
 
 ### **4. Deploy**
-- **GitHub Pages:** Push to `main` branch and enable GitHub Pages
-- **Netlify:** Drag and drop the folder to Netlify
-- **Vercel:** Connect your GitHub repository
+
+- **Netlify:** (https://jumaderick.netlify.app/)
+
 
 ## 🎯 Sections Overview
 
