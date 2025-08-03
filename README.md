@@ -73,7 +73,7 @@ cd portfolio_hackathon
 
 ### **4. Deploy**
 
-- **Netlify:** (https://jumaderick.netlify.app/)
+- **Netlify:** https://jumaderick.netlify.app/
 
 
 ## 🎯 Sections Overview
